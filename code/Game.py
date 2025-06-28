@@ -6,7 +6,7 @@ class Game:
         window = None
 
 
-    def run():
+    def run(self):
         pygame.init()
 
         window = pygame.display.set_mode(size=(600, 480))
