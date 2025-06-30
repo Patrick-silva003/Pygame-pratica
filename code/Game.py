@@ -1,18 +1,23 @@
+from code.Menu import Menu
+from code.const import WIN_WINDTH, WIN_HEIGHT
 import pygame
 
 
 class Game:
     def __init__(self):
-        window = None
+        pygame.init()
+        self.window = pygame.display.set_mode(size=(WIN_WINDTH, WIN_HEIGHT))
 
 
     def run(self):
-        pygame.init()
-
-        window = pygame.display.set_mode(size=(600, 480))
-
         while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    quit()
+            menu = Menu(self.window)
+            menu.run()
+
+            pass
+
+        #while True:
+            #for event in pygame.event.get():
+                #if event.type == pygame.QUIT:
+                    #pygame.quit()
+                    #quit()
