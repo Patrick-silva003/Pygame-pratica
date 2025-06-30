@@ -10,6 +10,7 @@ class Game:
 
 
     def run(self):
+
         while True:
             menu = Menu(self.window)
             menu.run()

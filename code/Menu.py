@@ -9,7 +9,17 @@ class Menu:
     
 
     def run(self):
-        self.window.blit(source=self.surf, dest=self.rect)
-        pygame.display.flip()
 
-        pass
+        pygame.mixer_music.load('./assets/Menu.mp3')
+        pygame.mixer_music.play(-1)
+
+        while True:
+            self.window.blit(source=self.surf, dest=self.rect)
+            pygame.display.flip()
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+
+            pass
