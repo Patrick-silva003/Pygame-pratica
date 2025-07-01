@@ -1,7 +1,7 @@
 from tkinter.font import Font
 import pygame
 
-from code.const import C_ORANGE, C_WHITE
+from code.const import C_ORANGE, C_WHITE, C_YELLOW
 from code.const import WIN_HEIGHT, WIN_WIDTH
 from code.const import MENU_OPTION
 
@@ -15,16 +15,19 @@ class Menu:
 
     def run(self):
 
+        menu_option = 0
         pygame.mixer_music.load('./assets/Menu.mp3')
         pygame.mixer_music.play(-1)
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-
             self.menu_text(60, 'Mountain', C_ORANGE, ((WIN_WIDTH / 2), 70))
             self.menu_text(60, 'Shooter', C_ORANGE, ((WIN_WIDTH / 2), 110))
             for i in range(len(MENU_OPTION)):
-                self.menu_text(30, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i) )
+                if i == menu_option:
+                    self.menu_text(30, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 200 + 25 * i) )
+                else:
+                    self.menu_text(30, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i) )
 
             pygame.display.flip()
 
@@ -33,7 +36,22 @@ class Menu:
                     pygame.quit()
                     quit()
 
-            pass
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        if menu_option < len(MENU_OPTION) - 1:
+                            menu_option += 1
+                        else:
+                            menu_option = 0
+
+                
+                    if event.key == pygame.K_UP:
+                        if menu_option > 0:
+                            menu_option -= 1
+                        else:
+                            menu_option = len(MENU_OPTION) - 1
+
+
+            
 
     
 

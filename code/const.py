@@ -1,5 +1,6 @@
 C_WHITE = (255, 255, 255)
 C_ORANGE = (255, 165, 0)
+C_YELLOW = (255, 255, 0)
 
 MENU_OPTION = (
     'NEW GAME 1P',
