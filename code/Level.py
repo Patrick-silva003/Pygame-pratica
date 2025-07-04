@@ -3,6 +3,7 @@ from tkinter.font import Font
 import pygame
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
 from code.const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, ENEMY_SPAWN
             
 
@@ -40,10 +41,11 @@ class Level:
             self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (80, 5))
             self.level_text(20, f'fps: {clock.get_fps():.0f}', C_WHITE, (30, WIN_HEIGHT - 35))
             self.level_text(20, f'entidades: {len(self.entity_list)}', C_WHITE, (50, WIN_HEIGHT - 20))
-            
-            
 
             pygame.display.flip()
+
+            EntityMediator.verify_colision(self.entity_list)
+            EntityMediator.verify_health(self.entity_list)
 
 
             for event in pygame.event.get():
