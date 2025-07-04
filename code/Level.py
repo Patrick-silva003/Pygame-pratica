@@ -1,8 +1,13 @@
+import random
 from tkinter.font import Font
 import pygame
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
-from code.const import C_WHITE, WIN_HEIGHT
+from code.const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, ENEMY_SPAWN
+            
+
+        
+            
 
 
 class Level:
@@ -12,7 +17,11 @@ class Level:
         self.game_mode = game_mode
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.append(EntityFactory.get_entity('Player1'))
         self.timeout = 20000
+        if self.game_mode in (MENU_OPTION[1], MENU_OPTION[2]):
+            self.entity_list.append(EntityFactory.get_entity('Player2'))
+        pygame.time.set_timer(EVENT_ENEMY, ENEMY_SPAWN)
 
 
     def run(self):
@@ -41,9 +50,12 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
+                
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('Enemy1', 'Enemy2'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
+
     
-
-
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
