@@ -7,7 +7,7 @@ C_YELLOW = (255, 255, 0)
 
 EVENT_ENEMY = pygame.USEREVENT + 1
 
-ENEMY_SPAWN = 3000
+ENEMY_SPAWN = 2000
 
 MENU_OPTION = (
     'NEW GAME 1P',
@@ -63,7 +63,12 @@ ENTITY_HEALTH = {
 
 
 
-
+ENTITY_SHOT_DELAY = {
+    'Player1': 15,
+    'Player2': 15,
+    'Enemy1': 50,
+    'Enemy2': 50
+}
 
 
 ENTITY_SPEED = {
@@ -79,7 +84,9 @@ ENTITY_SPEED = {
     'Player2': 3,
     'Player2Shot': 2,
     'Enemy1': 1.5,
-    'Enemy2': 2
+    'Enemy1Shot': 2.5,
+    'Enemy2': 2,
+    'Enemy2Shot': 4
 }
 
 WIN_WIDTH = 573
