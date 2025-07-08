@@ -6,7 +6,7 @@ from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
 from code.Player import Player
-from code.const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, ENEMY_SPAWN
+from code.const import C_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, ENEMY_SPAWN, C_GREEN, C_CYAN
             
 
         
@@ -43,6 +43,11 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
+                
+                if ent.name == 'Player1':
+                    self.level_text(20, f'Player1 - Health: {ent.health} | Score: {ent.score}', C_GREEN, (101, 20))
+                if ent.name == 'Player2':
+                    self.level_text(20, f'Player2 - Health: {ent.health} | Score: {ent.score}', C_CYAN, (101, 35))
 
             self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (80, 5))
             self.level_text(20, f'fps: {clock.get_fps():.0f}', C_WHITE, (30, WIN_HEIGHT - 35))
