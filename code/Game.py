@@ -1,7 +1,7 @@
 from code.Menu import Menu
 from code.const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
-import pygame
-
+import pygame 
+from code.Level2 import Level2
 from code.Level import Level
 
 
@@ -21,6 +21,8 @@ class Game:
             if menu_return in (MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]):
                 level = Level(self.window, 'Level 1', menu_return)
                 level_return = level.run()
+                level2 = Level2(self.window, 'Level2', level_return)
+                level2.run()
             if menu_return == MENU_OPTION[4]:
                 pygame.quit()
                 quit()
