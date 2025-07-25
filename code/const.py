@@ -60,9 +60,9 @@ ENTITY_HEALTH = {
     'Level2Bg3': 999,
     'Level2Bg4': 999,
     'Level2Bg5': 999, 
-    'Player1': 300,
+    'Player1': 200,
     'Player1Shot': 1,
-    'Player2': 300,
+    'Player2': 200,
     'Player2Shot': 1,
     'Enemy1': 50,
     'Enemy1Shot': 1,
@@ -122,8 +122,8 @@ ENTITY_SCORE = {
 
 
 ENTITY_SHOT_DELAY = {
-    'Player1': 15,
-    'Player2': 15,
+    'Player1': 12,
+    'Player2': 12,
     'Enemy1': 50,
     'Enemy2': 50
 }
@@ -143,9 +143,9 @@ ENTITY_SPEED = {
     'Level2Bg3': 1.5,
     'Level2Bg4': 2,
     'Level2Bg5': 2.5,
-    'Player1': 3,
+    'Player1': 3.5,
     'Player1Shot': 1.5,
-    'Player2': 3,
+    'Player2': 3.5,
     'Player2Shot': 2,
     'Enemy1': 1.5,
     'Enemy1Shot': 2.5,
@@ -155,8 +155,25 @@ ENTITY_SPEED = {
 
 
 TIMEOUT_STEP = 100
-TIMEOUT_LEVEL = 20000
+TIMEOUT_LEVEL = 10000
 
 WIN_WIDTH = 573
 WIN_HEIGHT = 324
+
+SCORE_POS = {
+    'Title': ((WIN_WIDTH / 2), 50),
+    'EnterName': ((WIN_WIDTH / 2), 80),
+    'Label': ((WIN_WIDTH / 2), 90),
+    'Name': ((WIN_WIDTH / 2), 100),
+    0: ((WIN_WIDTH / 2), 120),
+    1: ((WIN_WIDTH / 2), 140),
+    2: ((WIN_WIDTH / 2), 160),
+    3: ((WIN_WIDTH / 2), 180),
+    4: ((WIN_WIDTH / 2), 200),
+    5: ((WIN_WIDTH / 2), 220),
+    6: ((WIN_WIDTH / 2), 240),
+    7: ((WIN_WIDTH / 2), 260),
+    8: ((WIN_WIDTH / 2), 280),
+    9: ((WIN_WIDTH / 2), 300),
+}
 
